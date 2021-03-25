@@ -1,4 +1,10 @@
 "use strict";
+/*
+const assert = require("assert");  //always need this with node
+const myExports = require("./app.js");  //with node need the name of your file with your functions here
+const findTitles = myExports.findTitles;  //do this for all of the functions used in the Mocha tests
+*/
+
 /* global assert findTitles findAuthors findIDs addBook */
 /*
 Write a JavaScript program that will accept title, author, and libraryID values from an HTML page and create new book objects for each entry.  
@@ -29,18 +35,18 @@ describe("library", function () {
     });
 
     it("find authors", function () {
-        assert.deepStrictEqual(findAuthors(), authors);
+        assert.deepEqual(findAuthors(), authors);
     });
 
     it("find ids", function () {
-        assert.deepStrictEqual(findIDs(), authors);
+        assert.deepEqual(findIDs(), ids);
     });
 
     it("add book", function () {
         const newBook = {title: "My New Book", author: "Me Too", libraryID: 1144};
-        const newIDs = ids.push(1144);
-        assert.deepStrictEqual(addBook(newBook), newBook);
-        assert.deepStrictEqual(findIDs(), newIDs);
+        ids.push(1144);
+        assert.deepEqual(addBook(newBook), newBook);
+        assert.deepEqual(findIDs(), ids);
     });
 
 });

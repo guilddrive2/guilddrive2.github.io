@@ -1,6 +1,7 @@
 "use strict";
 
-
+/* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
+module.exports = {maxOfThree, sum, multiply }; //add all of your function names here that you need for the node mocha tests
 
 /**
  * 
@@ -20,9 +21,12 @@ function maxOfThree(a, b, c){
  */
 function sum(arr){
     let tot = 0;
-
+    for (const number of arr){
+        tot += number;
+    }
     return tot;
 }
+
 
 /**
  * 
